@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: foo
-        uses: rocklan/hello-world-composite-run-steps-action
+        uses: rocklan/hello-world-composite-run-steps-action@master
         with:
           who-to-greet: 'Rocklan the legend'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
