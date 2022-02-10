@@ -1,14 +1,18 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  cat_facts:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    
+    name: Display a cat fact
+    
     steps:
       - uses: actions/checkout@v2
-      - id: foo
-        uses: rocklan/hello-world-composite-run-steps-action@master
-        with:
-          who-to-greet: 'Rocklan the legend'
-      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+    
+      - run: curl --silent \
+          https://cat-fact.herokuapp.com/facts \
+          | jq .[2].text
+          
         shell: bash
+
+
