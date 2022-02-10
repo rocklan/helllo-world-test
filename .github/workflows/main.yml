@@ -9,10 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
     
-      - run: curl --silent \
-          https://cat-fact.herokuapp.com/facts \
-          | jq .[2].text
-          
+      - run: curl https://cat-fact.herokuapp.com/facts | jq .[2].text
         shell: bash
 
 
